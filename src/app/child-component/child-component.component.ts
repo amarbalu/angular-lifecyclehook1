@@ -1,13 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'hello',
-  template: `<h1 class="break">Hello {{name}}!</h1>
-  <app-child-component></app-child-component>`,
-  styles: [`h1 { font-family: Lato; }`]
+  selector: 'app-child-component',
+  templateUrl: './child-component.component.html',
+  styleUrls: ['./child-component.component.css']
 })
-export class HelloComponent  {
-  @Input() name: string;
+export class ChildComponentComponent implements OnInit {
+
   constructor(){
     console.log("1.constructor")
   }
@@ -23,4 +22,5 @@ export class HelloComponent  {
   ngOnDestroy():void{
 console.log("Destroy of component")
   }
+
 }
