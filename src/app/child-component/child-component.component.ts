@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
@@ -10,6 +10,7 @@ export class ChildComponentComponent implements OnInit {
   constructor(){
     console.log("1.constructor")
   }
+    @HostBinding ('style.color') color="orange";
    //ngOnChanges - Input param - changes captured or proprties change captured,
   //  change in fn param - conatins each input param in obect with properties like firstChange,previousValue,currentValue
   ngOnChanges(change):void{
