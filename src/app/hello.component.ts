@@ -1,4 +1,4 @@
-import { Component, Input,HostBinding,ViewChild,ContentChild } from '@angular/core';
+import { Component, Input,HostBinding,ViewChild,ContentChild, QueryList } from '@angular/core';
 import {ChildComponentComponent} from "./child-component/child-component.component";
 
 @Component({
@@ -20,7 +20,7 @@ export class HelloComponent  {
     console.log("hello - 1.constructor")
   }
   @ViewChild(ChildComponentComponent,{static:true}) childComp:ChildComponentComponent ;
-    @ContentChild(ChildComponentComponent) contentComp:ChildComponentComponent ;
+    @ContentChild(ChildComponentComponent) contentComp:QueryList<ChildComponentComponent>;
   bgColor="100px" //--hostbinding in decorator
   //HostBinding helps to change it host tag property as variable 
   // it can be used further
@@ -42,11 +42,11 @@ console.log('hello - viewInit '+JSON.stringify(this.childComp))
     console.log("Initialised once in lifecycle of component")
   }
   ngAfterContentInit():void{
-    console.log("hello-content init"+JSON.stringify(this.contentComp))
+    console.log("hello-content init -"+this.contentComp)
   }
   ngAfterContentChecked():void{
-      console.log("hello-content checked"
-      +JSON.stringify(this.contentComp))
+      console.log("hello-content checked -"
+      +this.contentComp)
   }
   ngOnDestroy():void{
 console.log("Destroy of component")
