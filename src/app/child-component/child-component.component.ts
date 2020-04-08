@@ -1,6 +1,7 @@
 import { Component, OnInit,HostBinding,
 HostListener } from '@angular/core';
-import {HelloComponent} from "../hello.component"
+import {HelloComponent} from "../hello.component";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-child-component',
@@ -9,7 +10,9 @@ import {HelloComponent} from "../hello.component"
 })
 export class ChildComponentComponent implements OnInit {
 user="amar"
-  constructor(){
+response:object={}
+
+  constructor(public http:HttpClient){
     console.log(" child - 1.constructor")
   }
   //Host binding binds the property
@@ -33,7 +36,8 @@ console.log('child - viewInit after view init')
   }
    //Init - Initialised once in a lifecycle of a component
   ngOnInit():void{
-    console.log("child -Initialised once in lifecycle of component")
+    console.log("child -Initialised once in lifecycle of component");
+    this.response=this.http.get('https://jsonplaceholder.typicode.com/todos/1');
   }
    ngAfterContentInit():void{
     console.log("child-content init")

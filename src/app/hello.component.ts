@@ -4,6 +4,8 @@ import {ChildComponentComponent} from "./child-component/child-component.compone
 @Component({
   selector: 'hello',
   template: `<h1 >Hello {{name}}!</h1>
+  {{2 | multiply :5}} -- multiply pipe
+  
   <app-child-component>Hi I got value from hello - {{name}}</app-child-component>
   <br/>
  `,

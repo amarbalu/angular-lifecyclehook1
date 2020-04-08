@@ -3,3 +3,5 @@
 <input [(ngModel)]="user"/>
 <br/>
  <ng-content></ng-content>
+ <br/>
+ <p>{{response | async | json}}</p>
