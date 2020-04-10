@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular';
+  // lifecycle hooks - hello component
+  // https client module - async pipe
+  // custom - pipe [multiply.pipe]
 }
